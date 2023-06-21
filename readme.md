@@ -15,13 +15,13 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 
 ## Componentes iniciales
 
-| Componente                             | Imagen referencial                                                 | Opcion de compra                                                                                           |   Valor |
-|----------------------------------------|--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|--------:|
-| Arduino Uno R3                         | <img src="img/arduino-uno-r3.jpg" width="100px" alt="">            | [ver](https://www.mechatronicstore.cl/arduino-uno-r3/)                                                     | $15.690 |
-| Protoboard                             | ![Protoboard](img/Protoboard.jpg "Protoboard"){ width=200 }        | [ver](https://www.mechatronicstore.cl/breadboard-830-puntos-mb102/)                                        | $ 2.490 |
-| Matriz led 32x8 operado con un MAX7219 | ![Matriz led 32x8](img/MAX7219.jpg "Matriz led 32x8"){ width=200 } | [ver](https://www.mechatronicstore.cl/Fmatriz-led-8x8x4-256-leds-max7219/)                                 |  $6.890 |
-| Módulo Reloj RTC DS3231                | ![Reloj DS3231](img/DS3231.png "Reloj RTC DS3231"){ width=200 }    | [ver](https://www.mechatronicstore.cl/modulo-reloj-rtc-ds3231/)                                            |  $3.490 |
-| Pila CR2032 o CR2040 (5 unidades)      | ![Pila CR2032](img/CR2032.jpeg "Pila CR2032"){ width=200 }         | [ver](https://articulo.mercadolibre.cl/MLC-956407083-pack-tira-5-pilas-tipo-boton-duracell-dlcr-2032-_JM ) |  $3.325 |
+| Componente                                                                                                                              | Imagen referencial                               |   Valor |
+|-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|--------:|
+| [Arduino Uno R3 ](https://www.mechatronicstore.cl/arduino-uno-r3/)                                                                      | <img src="img/arduino-uno-r3.jpg" width="200px"> | $15.690 |
+| [Protoboard](https://www.mechatronicstore.cl/breadboard-830-puntos-mb102/)                                                              | <img src="img/Protoboard.jpg" width="200px">     | $ 2.490 |
+| [Matriz led 32x8 operado con un MAX7219](https://www.mechatronicstore.cl/Fmatriz-led-8x8x4-256-leds-max7219/)                           | <img src="img/MAX7219.jpg" width="200px">        |  $6.890 |
+| [Módulo Reloj RTC DS3231](https://www.mechatronicstore.cl/modulo-reloj-rtc-ds3231/)                                                     | <img src="img/DS3231.png" width="200px">         |  $3.490 |
+| [Pila CR2032 o CR2040](https://articulo.mercadolibre.cl/MLC-956407083-pack-tira-5-pilas-tipo-boton-duracell-dlcr-2032-_JM )(5 unidades) | <img src="img/CR2032.jpg" width="200px">         |  $3.325 |
 
 ## Proyectos iniciales
 

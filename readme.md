@@ -17,7 +17,7 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 
 | Componente                             | Imagen referencial                                                      | Opcion de compra                                                                                           |   Valor |
 |----------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|--------:|
-| Arduino Uno R3                         | ![Arduino Uno R3](img/arduino-uno-r3.jpg | width=100)) | [ver](https://www.mechatronicstore.cl/arduino-uno-r3/)                                                     | $15.690 |
+| Arduino Uno R3                         | ![Arduino Uno R3](img/arduino-uno-r3.jpg | width=100) | [ver](https://www.mechatronicstore.cl/arduino-uno-r3/)                                                     | $15.690 |
 | Protoboard                             | ![Protoboard](img/Protoboard.jpg "Protoboard"){ width=200 }             | [ver](https://www.mechatronicstore.cl/breadboard-830-puntos-mb102/)                                        | $ 2.490 |
 | Matriz led 32x8 operado con un MAX7219 | ![Matriz led 32x8](img/MAX7219.jpg "Matriz led 32x8"){ width=200 }      | [ver](https://www.mechatronicstore.cl/Fmatriz-led-8x8x4-256-leds-max7219/)                                 |  $6.890 |
 | Módulo Reloj RTC DS3231                | ![Reloj DS3231](img/DS3231.png "Reloj RTC DS3231"){ width=200 }         | [ver](https://www.mechatronicstore.cl/modulo-reloj-rtc-ds3231/)                                            |  $3.490 |

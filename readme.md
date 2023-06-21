@@ -17,11 +17,23 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 
 | Componente                             | Imagen referencial                                                      | Opcion de compra                                                                                           |   Valor |
 |----------------------------------------|-------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|--------:|
-| Arduino Uno R3                         | ![Arduino Uno R3](img/arduino-uno-r3.jpg){:height="36px" width="36px"} | [ver](https://www.mechatronicstore.cl/arduino-uno-r3/)                                                     | $15.690 |
+| Arduino Uno R3                         |<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+ ![Arduino Uno R3](img/arduino-uno-r3.jpg){:height="36px" width="36px"} | [ver](https://www.mechatronicstore.cl/arduino-uno-r3/)                                                     | $15.690 |
 | Protoboard                             | ![Protoboard](img/Protoboard.jpg "Protoboard"){ width=200 }             | [ver](https://www.mechatronicstore.cl/breadboard-830-puntos-mb102/)                                        | $ 2.490 |
 | Matriz led 32x8 operado con un MAX7219 | ![Matriz led 32x8](img/MAX7219.jpg "Matriz led 32x8"){ width=200 }      | [ver](https://www.mechatronicstore.cl/Fmatriz-led-8x8x4-256-leds-max7219/)                                 |  $6.890 |
 | Módulo Reloj RTC DS3231                | ![Reloj DS3231](img/DS3231.png "Reloj RTC DS3231"){ width=200 }         | [ver](https://www.mechatronicstore.cl/modulo-reloj-rtc-ds3231/)                                            |  $3.490 |
 | Pila CR2032 o CR2040 (5 unidades)      | ![Pila CR2032](img/CR2032.jpeg "Pila CR2032"){ width=200 }              | [ver](https://articulo.mercadolibre.cl/MLC-956407083-pack-tira-5-pilas-tipo-boton-duracell-dlcr-2032-_JM ) |  $3.325 |
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://user-images.githubusercontent.com/25423296/163456776-7f95b81a-f1ed-45f7-b7ab-8fa810d529fa.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://user-images.githubusercontent.com/25423296/163456779-a8556205-d0a5-45e2-ac17-42d089e3c3f8.png">
+</picture>
+
 
 ## Proyectos iniciales
 

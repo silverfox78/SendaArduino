@@ -1,11 +1,7 @@
 # Arduino
 
-> 
-```shell
-git remote add origin https://github.com/silverfox78/SendaArduino.git
-git remote -v
+## Repo GIT
 
-git add .
-git commit -am "Actualizacion del repositorio"
-git push origin main
+```shell
+git clone https://github.com/silverfox78/SendaArduino.git
 ```

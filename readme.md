@@ -7,5 +7,5 @@ git remote -v
 
 git add .
 git commit -am "Actualizacion del repositorio"
-git push -u origin main:main
+git push origin main
 ```

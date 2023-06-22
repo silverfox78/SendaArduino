@@ -22,3 +22,4 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 | N | Titulo                                                | Descripcion                                                                                                                                                  |
 |---|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | [Seteo del reloj](proyectos/p001_reloj_set/readme.md) | Es necesario que fijar la hora en el reloj que usaremos, pero para su uso cotidiano no sera necesario, por eso lo descomponemos en un proyecto independiente |
+| 2 | [Clase reloj](proyectos/p002_reloj_class/readme.md)   | Organizamos el codigo buscando una mejor lectura y manejo en el futuro                                                                                       |

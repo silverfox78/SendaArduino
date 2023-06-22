@@ -13,7 +13,7 @@ El Sketch usa 5998 bytes (18%) del espacio de almacenamiento de programa. El má
 Las variables Globales usan 513 bytes (25%) de la memoria dinámica, dejando 1535 bytes para las variables locales. El máximo es 2048 bytes.
 ```
 
-Usea el primer proyecto usaba **5998 bytes (18%)**, la idea es reducirlo o mantenerse cerca de ese valor.
+Osea el primer proyecto usaba **5998 bytes (18%)**, la idea es reducirlo o mantenerse cerca de ese valor.
 
 Iniciamos por ya no usar la libreria **RTClib.h** y solo usar **Wire.h**.
 

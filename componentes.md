@@ -10,6 +10,7 @@
 | [Matriz led 32x8 operado con un MAX7219](https://www.mechatronicstore.cl/Fmatriz-led-8x8x4-256-leds-max7219/)                             | <img src="img/MAX7219.jpg" width="200px">                                  |  $6.890 |
 | [Módulo Reloj RTC DS3231](https://www.mechatronicstore.cl/modulo-reloj-rtc-ds3231/)                                                       | <img src="img/DS3231.png" width="200px">                                   |  $3.490 |
 | [Pila CR2032 o CR2040](https://articulo.mercadolibre.cl/MLC-956407083-pack-tira-5-pilas-tipo-boton-duracell-dlcr-2032-_JM) - (5 unidades) | <img src="img/CR2032.jpeg" width="200px">                                  |  $3.325 |
+| [Pantalla OLED SSD1306 0.96"](https://altronics.cl/display-oled-128x64-i2c)| <img src="img/oled-096.jpg" width="200px">                                  |  $6.800 |
 | [Kit 6 Pinzas](https://www.mechatronicstore.cl/kit-6-pinzas-antimagneticas-antiestaticas-vetus/)                                          | <img src="img/pinzas.jpg" width="200px">                                   | $11.900 |
 | [Limpiador para cautín](https://www.mechatronicstore.cl/limpiador-para-cautin/)                                                           | <img src="img/s-l300.jpg" width="200px">                                   |  $3.490 |
 | [Kit de soldadura](https://www.mechatronicstore.cl/kit-de-soldadura-fina-con-cautin-regulable-pelacable-estano-y-mas/)                    | <img src="img/kit-de-cautin-soldadura-pelcable-759x800.jpg" width="200px"> | $14.990 |

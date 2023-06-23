@@ -62,6 +62,6 @@ void loop() {
 
 Si lo vemos "funcionando", tenemos algo como esto:
 
-![Reloj en Matriz](/img/matrizled_01.jpg)
+[![Reloj en Matriz](/img/matrizled_01.jpg)](https://youtube.com/shorts/Z-Qoww_Y_s4?feature=share)
 
 El hecho de que se escriba en forma secuencial caracter a caracter y que esto no este centrado me da algo de ansiedad, fuera de eso, no tiene nada de entretenido que solo muestra la hora asi, por ende, el siguiente proyecto sera ir agregandole algunos temas visuales y componentes adicionales.

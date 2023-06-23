@@ -11,7 +11,7 @@ Como en el primer proyecto, iniciaremos por conectar y probar el componente, en 
 
 ## Conexiones
 
-| DS3231   | Arduino UNO |
+| MAX7219  | Arduino UNO |
 |----------|-------------|
 | VCC      | 5V          |
 | GND      | GND         |

@@ -44,11 +44,13 @@ void Led::measureText(int16_t& width, int16_t& height, const int size, const cha
 
 void Led::measureFormat(int16_t& width, int16_t& height, const int size, const char* format, ...)
 {
-  char buffer[256];
-
   va_list args;
   va_start(args, format);
-  vsnprintf(buffer, sizeof(buffer), format, args);
+
+  int length = vsnprintf(nullptr, 0, format, args) + 1;
+  char* buffer = new char[length];
+  va_start(args, format);
+  vsnprintf(buffer, length, format, args);
   va_end(args);
 
   // bool oldDisplayState = oled.getDisplay();
@@ -63,6 +65,7 @@ void Led::measureFormat(int16_t& width, int16_t& height, const int size, const c
   // else {
   //   oled.command(SSD1306_DISPLAYOFF);
   // }
+  delete[] buffer;
 }
 
 void Led::printText(const int size, const int x, const int y, const char* text)

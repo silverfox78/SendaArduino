@@ -5,9 +5,11 @@
 #include "clock.h"
 #include "led.h"
 #include "enum.h"
+#include "geometry.h"
 
 Clock clock;
 Led led;
+Geometry geometry;
 
 #define COUNT_OPTIONS 2
 
@@ -100,10 +102,85 @@ void OLed::drawClockInfo() {
   }
 }
 
+// void OLed::drawHorizont() {
+//   int delayDraw = 5;
+//   bool ifDraw = false;
+//   int endPrint = 150;
+
+//   if (millis() > (lastTime + delayDraw) || lastTime == 0) {
+//     lastTime = millis();
+//     ifDraw = true;
+//     countPrints++;
+
+//     if (countPrints >= endPrint) {
+//       countPrints = 0;
+//       requireChange = true;
+//       led.clear();
+//       led.display();
+//     }
+//   }
+
+//   if (ifDraw) {
+//     led.clear();
+//     led.printText(2, 5, 5, clock.getTime());
+
+//     int porcentaje = floor(countPrints * 100) / endPrint;
+
+//     led.drawLine(1, 41, 126, 39);
+//     led.drawLine(1, 42, 126, 40);
+
+//     int radiusInc = (5 / 100.0) * porcentaje;
+//     int radius = 5 + radiusInc;
+//     int xInc = (95 / 100.0) * porcentaje;
+//     int xCenter = 10 + xInc;
+//     int alt = (25 / 100.0) * porcentaje;
+//     int yCenter = 45 - alt;
+
+//     int cont = 0;
+
+//     for (int y = -radius; y <= radius; y += 2) {
+//       int lineLength = sqrt(radius * radius - y * y);
+//       int yScreen = yCenter + y;
+//       if (yScreen < 40) {
+//         led.drawLine(xCenter - lineLength, yScreen, xCenter + lineLength, yScreen);
+//       }
+//     }
+
+//     if (yCenter <= 40) {
+//       for (int x = 10; x <= 115; x += 5) {
+//         int neoX = calcularX(xCenter, yCenter, x, 40, 63);
+//         if (neoX <= -1) {
+//           int neoY = 40;
+//           if (x <= 62) {
+//             neoY = calcularY(xCenter, yCenter, x, 40, 0);
+//             if (neoY > 40) {
+//               led.drawLine(x, 40, 0, neoY);
+//             } else {
+//               led.drawLine(x, 40, 0, 40 + (40 - neoY));
+//             }
+//           } else {
+//             neoY = calcularY(xCenter, yCenter, x, 40, 123);
+//             if (neoY > 40) {
+//               led.drawLine(x, 40, 123, neoY);
+//             } else {
+//               led.drawLine(x, 40, 123, 40 + (40 - neoY));
+//             }
+//           }
+
+//         } else {
+//           led.drawLine(x, 40, neoX, 63);
+//         }
+//       }
+//     }
+
+//     led.display();
+//   }
+// }
+
 void OLed::drawHorizont() {
-  int delayDraw = 5;
+  int delayDraw = 100;
   bool ifDraw = false;
-  int endPrint = 150;
+  int endPrint = 100;
 
   if (millis() > (lastTime + delayDraw) || lastTime == 0) {
     lastTime = millis();
@@ -127,17 +204,16 @@ void OLed::drawHorizont() {
     led.drawLine(1, 41, 126, 39);
     led.drawLine(1, 42, 126, 40);
 
-    int radiusInc = (5 / 100.0) * porcentaje;
+    int radiusInc = (7 / 100.0) * porcentaje;
     int radius = 5 + radiusInc;
-    int xInc = (95 / 100.0) * porcentaje;
-    int xCenter = 10 + xInc;
+    int xInc = (100 / 100.0) * porcentaje;
+    int xCenter = 15 + xInc;
     int alt = (25 / 100.0) * porcentaje;
-    int yCenter = 45 - alt;
+    int yCenter = 39 - alt;
 
     int cont = 0;
 
     for (int y = -radius; y <= radius; y += 2) {
-      cont++;
       int lineLength = sqrt(radius * radius - y * y);
       int yScreen = yCenter + y;
       if (yScreen < 40) {
@@ -145,49 +221,28 @@ void OLed::drawHorizont() {
       }
     }
 
-    if (yCenter <= 40) {
-      for (int x = 10; x <= 115; x += 5) {
-        int neoX = calcularX(xCenter, yCenter, x, 40, 63);
-        if (neoX <= -1) {
-          int neoY = 40;
-          if (x <= 62) {
-            neoY = calcularY(xCenter, yCenter, x, 40, 0);
-            if (neoY > 40) {
-              led.drawLine(x, 40, 0, neoY);
-            } else {
-              led.drawLine(x, 40, 0, 40 + (40 - neoY));
-            }
-          } else {
-            neoY = calcularY(xCenter, yCenter, x, 40, 123);
-            if (neoY > 40) {
-              led.drawLine(x, 40, 123, neoY);
-            } else {
-              led.drawLine(x, 40, 123, 40 + (40 - neoY));
-            }
-          }
+    geometry.initialize(128, 64, xCenter, yCenter);
+    unsigned char lineHorizont = 40;
+    unsigned char lineBottom = 63;
+    int pointX = 0;
+    int pointY = 0;
 
+    for (int x = 5; x <= 120; x += 5) {
+      pointX = geometry.getPointX(x, lineHorizont, lineBottom);
+      pointY = lineBottom;
+
+      if (pointX < 0) {
+        if (geometry.getSlope(x, lineHorizont) == 0) {
+          pointX = x;
         } else {
-          led.drawLine(x, 40, neoX, 63);
+          pointX = geometry.getSlope(x, lineHorizont) < 0 ? 0 : 123;
+          pointY = geometry.getPointY(x, lineHorizont, pointX);
         }
       }
+
+      led.drawLine(x, lineHorizont, pointX, pointY);
     }
 
     led.display();
   }
-}
-
-int OLed::calcularX(int x1, int y1, int x2, int y2, int y) {
-  float m = (float)(y2 - y1) / (float)(x2 - x1);
-  float x = (float)(y - y1) / m + x1;
-  if (x < 0 || x > 127) { return -1; }
-  return floor(x);
-}
-
-int OLed::calcularY(int x1, int y1, int x2, int y2, int x) {
-  float m = (float)(y2 - y1) / (float)(x2 - x1);
-  float y = m * (x - x1) + y1;
-  if (y < 0 || y > 63) {
-    return -1;
-  }
-  return floor(y);
 }

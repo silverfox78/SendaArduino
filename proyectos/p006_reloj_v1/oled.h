@@ -15,8 +15,6 @@ private:
   void drawClear();
   void drawClockInfo();
   void drawHorizont();
-  int calcularX(int x1, int y1, int x2, int y2, int y);
-  int calcularY(int x1, int y1, int x2, int y2, int x);
 };
 
 #endif

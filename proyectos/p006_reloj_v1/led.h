@@ -12,6 +12,7 @@ public:
   void measureFormat(int16_t& width, int16_t& height, const int size, const char* format, ...);
   void printText(const int size, const int x, const int y, const char* text);
   void printFormat(const int size, const int x, const int y, const char* format, ...);
+  void drawLine(int x, int y, int end_x, int end_y);
   void display();
 };
 

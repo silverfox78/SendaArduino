@@ -7,7 +7,7 @@ class MLed {
 public:
   MLed();
   void initialize(int intensity);
-  void printText(const char* text, int delayTime);
+  void printText(const char* text, int delayTime);  
 };
 
 #endif

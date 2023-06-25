@@ -86,6 +86,10 @@ void Led::printFormat(const int size, const int x, const int y, const char* form
   delete[] buffer;
 }
 
+void Led::fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3) {
+  screen_oled.fillTriangle(x1, y1, x2, y2, x3, y3, WHITE);
+}
+
 void Led::drawLine(int x, int y, int end_x, int end_y) {
   screen_oled.drawLine(x, y, end_x, end_y, WHITE);
 }

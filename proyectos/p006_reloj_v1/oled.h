@@ -15,6 +15,7 @@ private:
   void drawClear();
   void drawClockInfo();
   void drawHorizont();
+  void drawPiramid(int base, int altura, int x1, int suelo);
 };
 
 #endif

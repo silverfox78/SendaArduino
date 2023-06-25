@@ -13,6 +13,7 @@ public:
   void printText(const int size, const int x, const int y, const char* text);
   void printFormat(const int size, const int x, const int y, const char* format, ...);
   void drawLine(int x, int y, int end_x, int end_y);
+  void fillTriangle(int x1, int y1, int x2, int y2, int x3, int y3);
   void display();
 };
 

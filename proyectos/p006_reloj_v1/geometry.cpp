@@ -47,3 +47,10 @@ int Geometry::getPointY(unsigned char x, unsigned char y, unsigned char point) {
   
   return floor(calculatedpoint);
 }
+
+int Geometry::getFibonacci(int n) {
+  if (n <= 1)
+    return n;
+  else
+    return getFibonacci(n - 1) + getFibonacci(n - 2);
+}

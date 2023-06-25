@@ -178,9 +178,9 @@ void OLed::drawClockInfo() {
 // }
 
 void OLed::drawHorizont() {
-  int delayDraw = 100;
+  int delayDraw = 25;
   bool ifDraw = false;
-  int endPrint = 100;
+  int endPrint = 80;
 
   if (millis() > (lastTime + delayDraw) || lastTime == 0) {
     lastTime = millis();
@@ -200,10 +200,6 @@ void OLed::drawHorizont() {
     led.printText(2, 5, 5, clock.getTime());
 
     int porcentaje = floor(countPrints * 100) / endPrint;
-
-    led.drawLine(1, 41, 126, 39);
-    led.drawLine(1, 42, 126, 40);
-
     int radiusInc = (7 / 100.0) * porcentaje;
     int radius = 5 + radiusInc;
     int xInc = (100 / 100.0) * porcentaje;
@@ -222,12 +218,28 @@ void OLed::drawHorizont() {
     }
 
     geometry.initialize(128, 64, xCenter, yCenter);
+
+    int r = 40;
+    for (int f = 0; f < 12; f++) {
+      r += f * 2;
+      if (r < 63) {
+        led.drawLine(0, r, 127, r + f);
+      }
+    }
+
+    int movePiramid = (60 / 100.0) * porcentaje;
+    drawPiramid(8, 7, 90 - movePiramid, 39);
+    drawPiramid(10, 9, 95 - movePiramid, 39);
+    drawPiramid(12, 11, 100 - movePiramid, 39);
+    drawPiramid(8, 8, 108 - movePiramid, 39);
+    drawPiramid(13, 14, 112 - movePiramid, 39);
+    drawPiramid(10, 10, 124 - movePiramid, 39);
     unsigned char lineHorizont = 40;
     unsigned char lineBottom = 63;
     int pointX = 0;
     int pointY = 0;
 
-    for (int x = 5; x <= 120; x += 5) {
+    for (int x = 5; x <= 120; x += 4) {
       pointX = geometry.getPointX(x, lineHorizont, lineBottom);
       pointY = lineBottom;
 
@@ -235,7 +247,7 @@ void OLed::drawHorizont() {
         if (geometry.getSlope(x, lineHorizont) == 0) {
           pointX = x;
         } else {
-          pointX = geometry.getSlope(x, lineHorizont) < 0 ? 0 : 123;
+          pointX = geometry.getSlope(x, lineHorizont) < 0 ? 0 : 127;
           pointY = geometry.getPointY(x, lineHorizont, pointX);
         }
       }
@@ -245,4 +257,14 @@ void OLed::drawHorizont() {
 
     led.display();
   }
+}
+
+void OLed::drawPiramid(int base, int altura, int x1, int suelo) {    
+    int x2 = x1 + base;
+    int y = suelo;
+    
+    int x3 = x1 + (base / 2);
+    int y3 = y - altura;
+
+    led.fillTriangle(x1, y, x2, y, x3, y3);
 }

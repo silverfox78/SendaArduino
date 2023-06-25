@@ -10,6 +10,7 @@ public:
   float getSlope(unsigned char x, unsigned char y);
   int getPointX(unsigned char x, unsigned char y, unsigned char point);
   int getPointY(unsigned char x, unsigned char y, unsigned char point);
+  int getFibonacci(int n);
 };
 
 #endif

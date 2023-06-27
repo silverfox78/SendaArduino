@@ -41,7 +41,7 @@ int Geometry::getPointY(unsigned char x, unsigned char y, unsigned char point) {
   float calculatedpoint;
 
   calculatedpoint = (slope * (point - base_x)) + base_y;
-  if (calculatedpoint <= 0 || calculatedpoint >= max_heigth) {
+  if (calculatedpoint <= 0 || calculatedpoint >= max_width) { //max_heigth
     return -1;
   }
   

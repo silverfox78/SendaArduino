@@ -4,6 +4,7 @@
 enum DrawOption {
   CLOCK,
   HORIZONT,
+  SPACE,
 };
 
 #endif

@@ -65,7 +65,7 @@ void OLed::drawClear() {
 void OLed::drawClockInfo() {
   int delayDraw = 100;
   bool ifDraw = false;
-  int endPrint = 20;
+  int endPrint = 100;
 
   if (millis() > (lastTime + delayDraw) || lastTime == 0) {
     lastTime = millis();

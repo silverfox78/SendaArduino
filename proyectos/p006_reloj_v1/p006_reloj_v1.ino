@@ -14,5 +14,4 @@ void setup() {
 
 void loop() {
   oled.draw();
-  //delay(1000);
 }

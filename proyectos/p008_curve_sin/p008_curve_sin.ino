@@ -29,9 +29,9 @@ void loop() {
     drawLine(center_x, center_y, radius, true, i);
   }
 
-  for (int16_t i = 0; i < HEIGHT; i += 5) {
-    drawLine(center_x, center_y, radius, false, i);
-  }
+  // for (int16_t i = 0; i < HEIGHT; i += 5) {
+  //   drawLine(center_x, center_y, radius, false, i);
+  // }
   display.display();
 }
 
@@ -83,26 +83,26 @@ void drawCurveLine(int16_t center_x, int16_t center_y, int16_t radius, bool isVe
   const int curveDistance = end_curve - start_curve;
   int count = 0;
   for (int16_t i = start_curve; i < end_curve; i++) {
-    int curveFactor = sin(PI * (count / curveDistance)); //floor(h * sin(PI * (count / curveDistance)));
-    const int printPoint = i + curveFactor;
+    int curveFactor = (int) 30 * sin(PI * count / curveDistance); //floor(h * sin(PI * (count / curveDistance)));
+    int printPoint = i + curveFactor;
     const int distance = floor(centerCircle > printPoint ? centerCircle - printPoint : printPoint - centerCircle);
-    Serial.print("Eje:");
-    Serial.print(isVertical ? "Vertical" : "Horizontal");
-    Serial.print(" - Pilar:");
-    Serial.print(position);
-        Serial.print(" - curveDistance:");
-    Serial.print(curveDistance);
-    Serial.print(" - curveFactor:");
-    Serial.print(curveFactor);
-    Serial.print(" - point:");
-    Serial.print(i);
-    Serial.print(" - count:");
-    Serial.print(count);
-    Serial.print(" - distance:");
-    Serial.println(distance);
-    if (distance >= nullification_distance) {
+    // Serial.print("Eje:");
+    // Serial.print(isVertical ? "Vertical" : "Horizontal");
+    // Serial.print(" - Pilar:");
+    // Serial.print(position);
+    //     Serial.print(" - curveDistance:");
+    // Serial.print(curveDistance);
+    // Serial.print(" - curveFactor:");
+    // Serial.print(curveFactor);
+    // Serial.print(" - point:");
+    // Serial.print(i);
+    // Serial.print(" - count:");
+    // Serial.print(count);
+    // Serial.print(" - distance:");
+    // Serial.println(distance);
+    //if (distance >= nullification_distance) {
       display.drawPixel(isVertical ? position : printPoint, isVertical ? printPoint : position, WHITE);
-    }
+    //}
     count++;
   }
 }

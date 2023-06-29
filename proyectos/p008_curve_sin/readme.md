@@ -1,5 +1,5 @@
 # Funcion sin(x)
 
-<img src="sincurve.png" width="500px">
+<img src="sincurve.png" width="800px">
 
 ---

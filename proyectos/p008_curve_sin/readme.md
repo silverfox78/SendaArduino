@@ -1,3 +1,5 @@
 # Funcion sin(x)
 
-[!SinCurve](sincurve.png)
+<img src="sincurve.png" width="500px">
+
+---

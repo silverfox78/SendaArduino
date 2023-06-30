@@ -233,18 +233,19 @@ void OLed::drawCurveSpare() {
     int porcentaje = floor(countPrints * 100) / endPrint;
     int inc = (70 / 100.0) * porcentaje;
     int incRadio = (6 / 100.0) * porcentaje;
+    int curveFactor = (int)30 * sin(PI * (1.4*porcentaje) / 160);
 
     int center_x = 90 - inc;
-    int center_y = 45 - (inc / 4);
-    int radius = 10 + incRadio;
+    int center_y = 45 - curveFactor;
+    int radius = 8 + incRadio;
 
     drawCircleSpace(center_x, center_y, radius);
 
-    for (int i = 0; i < WIDTH; i += 7) {
+    for (int i = 0; i < WIDTH; i += 8) {
       drawLineSpace(center_x, center_y, radius, true, i);
     }
 
-    for (int16_t i = 0; i < HEIGHT; i += 7) {
+    for (int16_t i = 0; i < HEIGHT; i += 8) {
       drawLineSpace(center_x, center_y, radius, false, i);
     }
     led.display();
@@ -410,7 +411,7 @@ bool OLed::isCurveLine(int16_t center_x, int16_t center_y, int16_t radius, bool 
 }
 
 void OLed::drawCurveLine(int16_t center_x, int16_t center_y, int16_t radius, bool isVertical, int16_t position) {
-  const float proximity_factor = 2.5;
+  const float proximity_factor = 2.7;
   const float nullification_factor = 0.8;
   const int16_t centerCircle = isVertical ? center_y : center_x;
   const int16_t end_point = isVertical ? HEIGHT : WIDTH;

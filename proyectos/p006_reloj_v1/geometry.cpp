@@ -55,7 +55,8 @@ int Geometry::getFibonacci(int n) {
     return getFibonacci(n - 1) + getFibonacci(n - 2);
 }
 
-float Geometry::getDistance(unsigned char x, unsigned char y) {
+float Geometry::getDistance(unsigned char x, unsigned char y) 
+{
   int dx = x - base_x;
   int dy = y - base_y;
   return sqrt(dx * dx + dy * dy);

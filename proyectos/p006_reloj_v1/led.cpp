@@ -94,6 +94,10 @@ void Led::drawLine(int x, int y, int end_x, int end_y) {
   screen_oled.drawLine(x, y, end_x, end_y, WHITE);
 }
 
+void Led::drawPixel(int x, int y) {
+  screen_oled.drawPixel(x, y, WHITE);
+}
+
 void Led::display() {
   screen_oled.display();
 }

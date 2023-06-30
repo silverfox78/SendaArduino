@@ -26,20 +26,20 @@ void loop() {
   int center_y = 31;
   int radius = 10;
 
-  drawCircle(center_x, center_y, radius);
+  drawCircleSpace(center_x, center_y, radius);
 
   for (int i = 0; i < WIDTH; i += 5) {
-    drawLine(center_x, center_y, radius, true, i);
+    drawLineSpace(center_x, center_y, radius, true, i);
   }
 
   for (int16_t i = 0; i < HEIGHT; i += 5) {
-    drawLine(center_x, center_y, radius, false, i);
+    drawLineSpace(center_x, center_y, radius, false, i);
   }
 
   display.display();
 }
 
-void drawLine(int16_t center_x, int16_t center_y, int16_t radius, bool isVertical, int16_t position) {
+void drawLineSpace(int16_t center_x, int16_t center_y, int16_t radius, bool isVertical, int16_t position) {
   const int16_t end_point = isVertical ? HEIGHT : WIDTH;
 
   bool isCurve = isCurveLine(center_x, center_y, radius, isVertical, position);
@@ -92,7 +92,7 @@ void drawCurveLine(int16_t center_x, int16_t center_y, int16_t radius, bool isVe
   }
 }
 
-void drawCircle(int16_t center_x, int16_t center_y, int16_t radius) {
+void drawCircleSpace(int16_t center_x, int16_t center_y, int16_t radius) {
   int count = 1;
   int percentage = 0;
   int x1, x2;

@@ -5,6 +5,7 @@ enum DrawOption {
   CLOCK,
   HORIZONT,
   SPACE,
+  SPIDERWEB
 };
 
 #endif

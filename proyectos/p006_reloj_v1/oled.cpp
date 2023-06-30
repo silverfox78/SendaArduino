@@ -1,4 +1,3 @@
-
 #include "OLed.h"
 #include <Arduino.h>
 #include <stdlib.h>
@@ -7,17 +6,18 @@
 #include "enum.h"
 #include "geometry.h"
 
+#define COUNT_OPTIONS 4
+#define HEIGHT 64
+#define WIDTH 128
+
 Clock clock;
 Led led;
 Geometry geometry;
-
-#define COUNT_OPTIONS 3
+DrawOption option;
 
 unsigned long lastTime = 0;
-
 int16_t countPrints = 0;
 bool requireChange = true;
-DrawOption option;
 int lastOption = -1;
 
 OLed::OLed() {
@@ -51,7 +51,10 @@ void OLed::draw() {
       drawHorizont();
       break;
     case SPACE:
-      drawCurveSpace();
+      drawCurveSpare();
+      break;
+    case SPIDERWEB:
+      drawSpiderWeb();
       break;
   }
 }
@@ -172,7 +175,7 @@ void OLed::drawHorizont() {
   }
 }
 
-void OLed::drawCurveSpace() {
+void OLed::drawSpiderWeb() {
   int delayDraw = 50;
   bool ifDraw = false;
   int endPrint = 35;
@@ -194,7 +197,7 @@ void OLed::drawCurveSpace() {
     int porcentaje = floor(countPrints * 100) / endPrint;
     int incX = (80 / 100.0) * porcentaje;
     int incRadio = (4 / 100.0) * porcentaje;
-    
+
     float a = -0.0002;
     float b = 55;
     float c = 40;
@@ -202,7 +205,48 @@ void OLed::drawCurveSpace() {
     int x = 20 + incX;
     int y = floor(a * ((d * x + b) * (d * x + b) * (d * x + b)) + c);
     int radio = 20;
-    drawSpace(x, y, radio - incRadio , 2);
+    drawSpace(x, y, radio - incRadio, 2);
+    led.display();
+  }
+}
+
+void OLed::drawCurveSpare() {
+  int delayDraw = 25;
+  bool ifDraw = false;
+  int endPrint = 40;
+
+  if (millis() > (lastTime + delayDraw) || lastTime == 0) {
+    lastTime = millis();
+    ifDraw = true;
+    countPrints++;
+
+    if (countPrints >= endPrint) {
+      countPrints = 0;
+      requireChange = true;
+      led.clear();
+      led.display();
+    }
+  }
+
+  if (ifDraw) {
+    led.clear();
+    int porcentaje = floor(countPrints * 100) / endPrint;
+    int inc = (70 / 100.0) * porcentaje;
+    int incRadio = (6 / 100.0) * porcentaje;
+
+    int center_x = 90 - inc;
+    int center_y = 45 - (inc / 4);
+    int radius = 10 + incRadio;
+
+    drawCircleSpace(center_x, center_y, radius);
+
+    for (int i = 0; i < WIDTH; i += 7) {
+      drawLineSpace(center_x, center_y, radius, true, i);
+    }
+
+    for (int16_t i = 0; i < HEIGHT; i += 7) {
+      drawLineSpace(center_x, center_y, radius, false, i);
+    }
     led.display();
   }
 }
@@ -341,4 +385,111 @@ void OLed::drawLineToMargins(int16_t x1, int16_t y1, int16_t x2, int16_t y2) {
   // Serial.println(")");
 
   led.drawLine(startX, startY, endX, endY);
+}
+
+void OLed::drawLineSpace(int16_t center_x, int16_t center_y, int16_t radius, bool isVertical, int16_t position) {
+  const int16_t end_point = isVertical ? HEIGHT : WIDTH;
+
+  bool isCurve = isCurveLine(center_x, center_y, radius, isVertical, position);
+
+  if (!isCurve) {
+    for (int16_t i = 0; i < end_point; i++) {
+      led.drawPixel(isVertical ? position : i, isVertical ? i : position);
+    }
+  } else {
+    drawCurveLine(center_x, center_y, radius, isVertical, position);
+  }
+}
+
+bool OLed::isCurveLine(int16_t center_x, int16_t center_y, int16_t radius, bool isVertical, int16_t position) {
+  const float proximity_factor = 2.0;
+  const float nullification_factor = 0.8;
+  const int16_t centerCircle = isVertical ? center_x : center_y;
+  const int distance = floor(centerCircle > position ? centerCircle - position : position - centerCircle);
+  return distance <= radius * proximity_factor;
+}
+
+void OLed::drawCurveLine(int16_t center_x, int16_t center_y, int16_t radius, bool isVertical, int16_t position) {
+  const float proximity_factor = 2.5;
+  const float nullification_factor = 0.8;
+  const int16_t centerCircle = isVertical ? center_y : center_x;
+  const int16_t end_point = isVertical ? HEIGHT : WIDTH;
+  const int16_t start_curve = centerCircle - (radius * proximity_factor);
+  const int16_t end_curve = centerCircle + (radius * proximity_factor);
+  const int16_t curveDistance = end_curve - start_curve;
+  for (int16_t i = 0; i < start_curve; i++) {
+    led.drawPixel(isVertical ? position : i, isVertical ? i : position);
+  }
+
+  for (int16_t i = end_curve + 1; i < end_point; i++) {
+    led.drawPixel(isVertical ? position : i, isVertical ? i : position);
+  }
+
+  const int16_t centerEje = isVertical ? center_x : center_y;
+  const int16_t distance_position = centerEje > position ? centerEje - position : position - centerEje;
+  const int16_t distance_extra = (radius * proximity_factor) - distance_position;
+  const int16_t height_curve = floor((distance_extra / 100.0) * 60);
+  const int16_t direction_curve = centerEje - position >= 0 ? -1 : 1;
+
+  int count = 0;
+  for (int16_t i = start_curve; i < end_curve; i++) {
+    int curveFactor = direction_curve * (int)height_curve * sin(PI * count / curveDistance);
+    int printPoint = position + curveFactor;
+    led.drawPixel(isVertical ? printPoint : i, isVertical ? i : printPoint);
+    count++;
+  }
+}
+
+void OLed::drawCircleSpace(int16_t center_x, int16_t center_y, int16_t radius) {
+  int count = 1;
+  int percentage = 0;
+  int x1, x2;
+  bool print = false;
+  for (int y = center_y - radius; y < center_y + radius; y++) {
+    print = false;
+    percentage = floor(count * 100) / (2 * radius);
+    if (percentage <= 20 && y % 2 == 0) {
+      print = true;
+    }
+    if (percentage > 20 && percentage <= 60 && y % 2 == 0) {
+      print = true;
+    }
+
+    if (percentage > 60) {
+      print = true;
+    }
+
+    if (print) {
+      infoCircle(center_x, center_y, radius, y, x1, x2);
+      led.drawLine(x1, y, x2, y);
+    }
+    count++;
+  }
+}
+
+void OLed::infoCircle(int centerX, int centerY, int radius, int valueY, int& x1, int& x2) {
+  int x = 0;
+  int y = radius;
+  int p = 1 - radius;
+
+  while (x <= y) {
+    if (valueY == centerY + y || valueY == centerY - y) {
+      x1 = centerX + x;
+      x2 = centerX - x;
+      break;
+    }
+    if (valueY == centerY + x || valueY == centerY - x) {
+      x1 = centerX + y;
+      x2 = centerX - y;
+      break;
+    }
+
+    if (p < 0) {
+      p += 2 * x + 3;
+    } else {
+      p += 2 * (x - y) + 5;
+      y--;
+    }
+    x++;
+  }
 }

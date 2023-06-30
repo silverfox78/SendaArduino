@@ -11,7 +11,7 @@ public:
   int getPointX(unsigned char x, unsigned char y, unsigned char point);
   int getPointY(unsigned char x, unsigned char y, unsigned char point);
   int getFibonacci(int n);
-  float getDistance(unsigned char x, unsigned char y)
+  float getDistance(unsigned char x, unsigned char y);
 };
 
 #endif

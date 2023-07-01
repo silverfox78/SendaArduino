@@ -29,3 +29,10 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 | 6 | [Reloj v1](proyectos/p006_reloj_v1/readme.md)                         | Se inicia la logica de muestra de informacion                                                                                                                |
 | 7 | [Espacio curvo](proyectos/p007_space_demo/readme.md)                  | Demo de grafica para la pantalla OLED                                                                                                                        |
 | 8 | [Funcion sin(x)](proyectos/p008_curve_sin/readme.md)                  | Test de la curva del sin(x) para la curva de las rectas                                                                                                      |
+| 9 |[**Reloj_Multifuncional**](proyectos/p_reloj_multifuncional/readme.md)| Reestructuracion del proyecto original |
+
+---
+
+## Etapa 2 - Orden
+
+- **20230701** En este punto del proyecto, si vien han habido avances, estos han sido mas bien desordenados, principalmente por la generacion de clases/librerias que no estan apropiadamente nombradas, fuera de esto la redundancia de codigo y la falta de optizacion de otros, en la busqueda de mejorar estos puntos, evalue el crear y disponder directamente de librerias para el protecto, lo cual es completamente factible, incluso el publicarlas en arduino como una libreria oficial, pero en este caso eso solo volveria mas complejo el proposito del proyecto, por ende optare por organizar todo en un nuevo espacio, renombrando las clases/librerias y optimizando sus funcionalidades, para ello creare el proyecto [**Reloj_Multifuncional**](proyectos/p_reloj_multifuncional/readme.md). En ente mismo proceso, se generan nuevos carpetas y proyectos que contendran la logica de manera independientede las librerias.

@@ -1,3 +1,5 @@
+#include <Arduino_BuiltIn.h>
+
 #include "OLed.h"
 #include <Arduino.h>
 #include <stdlib.h>
@@ -42,21 +44,21 @@ void OLed::draw() {
     requireChange = false;
     drawClear();
   }
-
-  switch (option) {
-    case CLOCK:
-      drawClockInfo();
-      break;
-    case HORIZONT:
-      drawHorizont();
-      break;
-    case SPACE:
-      drawCurveSpare();
-      break;
-    case SPIDERWEB:
-      drawSpiderWeb();
-      break;
-  }
+drawCurveSpare();
+  // switch (option) {
+  //   case CLOCK:
+  //     drawClockInfo();
+  //     break;
+  //   case HORIZONT:
+  //     drawHorizont();
+  //     break;
+  //   case SPACE:
+  //     drawCurveSpare();
+  //     break;
+  //   case SPIDERWEB:
+  //     drawSpiderWeb();
+  //     break;
+  // }
 }
 
 void OLed::drawClear() {

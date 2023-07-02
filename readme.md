@@ -37,3 +37,7 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 ## Etapa 2 - Orden
 
 - **20230701** En este punto del proyecto, si vien han habido avances, estos han sido mas bien desordenados, principalmente por la generacion de clases/librerias que no estan apropiadamente nombradas, fuera de esto la redundancia de codigo y la falta de optizacion de otros, en la busqueda de mejorar estos puntos, evalue el crear y disponder directamente de librerias para el protecto, lo cual es completamente factible, incluso el publicarlas en arduino como una libreria oficial, pero en este caso eso solo volveria mas complejo el proposito del proyecto, por ende optare por organizar todo en un nuevo espacio, renombrando las clases/librerias y optimizando sus funcionalidades, para ello creare el proyecto [**Reloj_Multifuncional**](proyectos/Temporama//readme.md). En ente mismo proceso, se generan nuevos carpetas y proyectos que contendran la logica de manera independientede las librerias.
+
+### Actualizacion de libreria
+
+La libreria de **Temporama** se encuentra contenida en este repositorio, pero para su uso en los proyectos debemos procurar mantener actualizada la carpeta dentro de las librerias de Arduino (esto depende de la configuracion de cada equipo), para ello en la raiz de este proyecto dejo un script que se encarga de esta accion: [Aqui](./clon_lib.sh), en el cual basicamente especificamos la ruta local de la carpeta de la libreria y la ruta de las librerias de arduino, el script se encarga de eliminar, copiar y verificar los archivos.

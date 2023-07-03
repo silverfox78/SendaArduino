@@ -7,7 +7,7 @@ class MAX7219_Class {
 public:
   MAX7219_Class();
   void initialize(int intensity);
-  void printText(const char* text, int delayTime);  
+  void printText(const char* text);  
 };
 
 #endif

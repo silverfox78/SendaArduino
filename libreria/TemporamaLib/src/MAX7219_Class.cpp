@@ -24,29 +24,27 @@ void MAX7219_Class::initialize(int intensity)
     mx.clear();
 }
 
-void MAX7219_Class::printText(const char* text, int delayTime) {
-  mx.clear();
+void MAX7219_Class::printText(const char *text)
+{
+    mx.clear();
+    int len = strlen(text);
+    int total = len;
+    uint8_t charWidth;
+    uint8_t cBuf[8];
 
-  int len = strlen(text);
-  int total = len;
+    for (int i = 0; i < len; i++)
+    {
+        charWidth = mx.getChar(text[i], sizeof(cBuf) / sizeof(cBuf[0]), cBuf);
+        total = total + charWidth;
+    }
 
-  uint8_t charWidth;
-  uint8_t cBuf[8];
-  for (int i = 0; i < len; i++) {
-    charWidth = mx.getChar(text[i], sizeof(cBuf) / sizeof(cBuf[0]), cBuf);
-    total = total + charWidth;
-  }
+    total = 15 + floor((total - 1)/ 2);
 
-  for (int i = 0; i < len; i++) {    
-    mx.setChar(total, text[i]);
-    charWidth = mx.getChar(text[i], sizeof(cBuf) / sizeof(cBuf[0]), cBuf);
-    total = total - charWidth - 1;
-    mx.update();
-    delay(delayTime);
-  }
-
-  mx.clear();
-  mx.update();
-
-  delay(delayTime);
+    for (int i = 0; i < len; i++)
+    {
+        mx.setChar(total, text[i]);
+        charWidth = mx.getChar(text[i], sizeof(cBuf) / sizeof(cBuf[0]), cBuf);
+        total = total - charWidth - 1;
+        mx.update();
+    }
 }

@@ -30,7 +30,7 @@ Para este objetivo, ire avanzando poco a poco en los pasos necesarios para llega
 | 7  | [Espacio curvo](proyectos/p007_space_demo/readme.md)                  | Demo de grafica para la pantalla OLED                                                                                                                        |
 | 8  | [Funcion sin(x)](proyectos/p008_curve_sin/readme.md)                  | Test de la curva del sin(x) para la curva de las rectas                                                                                                      |
 | 9  | [Libreria de Temporama](libreria/TemporamaLib/readme.md)              | Libreria destinada a contener la logica de **Temporama**                                                                                                     |
-| 10 | [**TEMPORAMA**](proyectos/Temporama/readme.md)                | Reestructuracion del proyecto original a **Temporama**                                                                                                       |
+| 10 | [**TEMPORAMA**](proyectos/Temporama/readme.md)                        | Reestructuracion del proyecto original a **Temporama**                                                                                                       |
 
 ---
 

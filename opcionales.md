@@ -16,3 +16,5 @@
 | [Cable Conector Cocodrilo](https://www.mechatronicstore.cl/cable-conector-cocodrilo-10-unidades/)                   | <img src="img/ConectorCocodrilo.jpg" width="200px">                   | $2.490  |
 | [Kit de poleas](https://www.mechatronicstore.cl/pack-engranajes/)                                                   | <img src="img/Poleas.jpg" width="200px">                              | $5.400  |
 | * [Kit 140 cables macho-macho](https://www.mechatronicstore.cl/cables-macho-macho/)                                 | <img src="img/KitJumper.jpg" width="200px">                           | $2.190  |
+
+- considerar el uso de gms en el futuro.
